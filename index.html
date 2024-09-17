@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&family=Sevillana&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <title>Delicious</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .nav-item a:hover {
+            color: orangered ;
+        }
+
+        .nav-item #book{
+            /* font-weight: 700; */
+            /* color: red; */
+            border: 2px solid black;
+            border-radius: 50px;
+            transition: all .5s ease-in-out;
+        }
+        .nav-item #book:hover{
+            background-color: red;
+            border-radius: 50% 50% 0px 0px;
+            color: white;         
+        }
+
+        #home1:hover {
+            color: red;
+
+            border-radius: 10px;
+            transition: all .9s ease;
+        }
+
+        #header {
+            margin-top: 90px;
+        }
+
+
+        #image img {
+            margin-top: 30px;
+            box-shadow: 0 0 30px black
+        }
+
+        #img1 {
+            height: 40vh;
+            width: 30%;
+        }
+
+        #img2 {
+            height: 40vh;
+            width: 30%;
+
+        }
+
+        #img3 {
+            height: 40vh;
+            width: 30%;
+        }
+
+        #img1:hover {
+            transform: scale(1.2);
+            transition: all .4s ease-in-out;
+        }
+
+        #img2:hover {
+            transform: scale(1.2);
+            transition: all .4s ease-in-out;
+        }
+
+        #img3:hover {
+            transform: scale(1.2);
+            transition: all .4s ease-in-out;
+        }
+
+        #heading1 {
+            font-family: "M PLUS Rounded 1c", sans-serif;
+        }
+
+        #heading2 {
+            font-family: "Sevillana", cursive;
+        }
+
+        #about {
+            margin-top: 90px;
+        }
+
+        .card {
+            text-align: center;
+            border: none;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .card img {
+            margin-left: 45%;
+            height: 40px;
+            width: 40px;
+        }
+
+        .card1 {
+            width: 320px;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            /* border: 5px solid rgb(0, 0, 255); */
+            position: relative;
+
+
+        }
+
+        .card1 img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+
+        }
+
+
+        .card1-body {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: -100%;
+            position: absolute;
+            backdrop-filter: blur(6px);
+            /* border-radius: 15px; */
+            color: black;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card1:hover .card1-body {
+            right: 0;
+            transition: all .6s ease-in-out;
+        }
+
+
+        .card2 {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 5px solid black;
+            position: relative;
+
+
+        }
+
+        .card2 img {
+            height: 70vh;
+            width: 100%;
+        }
+
+        .card2:hover {
+            transform: scale(1.1);
+            transition: all .3s ease-in;
+        }
+
+        .card2-icon {
+            margin: 30px;
+
+        }
+
+        .event1 {
+            position: relative;
+
+        }
+
+        .event1 img {
+            height: 70vh;
+            width: 100%;
+            border: 5px solid black;
+            border-radius: 10px;
+            transition: all .3s ease-in;
+
+        }
+
+        .event1 img:hover {
+            transform: scale(1.1);
+        }
+
+        .event-heading {
+
+            position: absolute;
+            bottom: 0;
+            /* left: ; */
+            margin-left: 10%;
+            color: white;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .gallery img {
+            height: 50vh;
+            width: 100%;
+            border: 6px solid black;
+            border-radius: 10px;
+        }
+
+        .map {
+            height: 56vh;
+            width: 100%;
+        }
+
+        .bookt img {
+            height: 65vh;
+            width: 100%;
+        }
+
+        button{
+            width: 30%;
+            /* background-color: skyblue!important; */
+            /* color: black!important; */
+            border-radius: 50%!important;
+            transition: all .5s ease-in!important;
+        }
+        button:hover{
+            background-color: orangered!important;
+            color: white!important;
+            border-radius: 10px!important;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <!-- nav start -->
+    <nav class="navbar navbar-expand-lg bg-transparent">
+        <div class="container-fluid ">
+            <a id="home1"
+                style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"
+                class="navbar-brand fs-2" href="#">Delicious</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav m-auto mb-2 mb-lg-0 fs-5  text-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#event">Event</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#chef">Chefs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+
+                </ul>
+                <ul class="navbar-nav mx-4 fs-5 text-center">
+                    <li class="nav-item">
+                        <a id="book" class="nav-link" href="#booktable">Book Table</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- nav end -->
+
+    <!-- home start -->
+    <div id="home" class="container-fluid">
+        <div class="row bg-light-subtle">
+            <div id="header" class="col-md-6 text-center">
+                <h1 id="heading1">Enjoy Your Healthy <br>
+                    <span class="text-danger">Delicious</span> Food
+                </h1>
+                <h3 id="heading2" class="">We are team of talented <br>Chefs making
+                    <span class="text-danger">Delicious</span> Food
+                </h3>
+                <a href="#booktable" class="btn btn-danger mt-4">Book Table</a>
+            </div>
+            <div id="image" class="col-md-6  text-center" data-aos="zoom-in" data-aos-offset="200"
+                data-aos-duration="1000" data-aos-easing="ease-in">
+                <img id="img1" class="img-fluid border border-5 border-black"
+                    src="image/Kadai Paneer - The Best Restaurant Style Paneer Recipe Video.jpg" alt="">
+                <img id="img2" class="img-fluid  border border-5 border-black" src="image/Hariyali Paneer Tikka.jpg"
+                    alt="">
+                <img id="img3" class="img-fluid  border border-5 border-black" src="image/Dal Makhani.jpg" alt="">
+
+
+            </div>
+        </div>
+    </div>
+    <!-- home end -->
+
+    <!-- about start -->
+    <div id="about" class="container">
+        <div class="text-center">
+            <h2 class="about-header">About <span class="text-danger">us</span></h2>
+            <hr style="width: 10vw;" class="border border-3 opacity-100 border-danger m-auto" />
+        </div>
+        <div class="row">
+            <p class="mt-5 fs-5 text-center">The Delicious Family Welcomes you to the venue to treasure your sweet
+                memories and a place for your
+                personal happenings with a tint of an extravagant lifestyle.</p>
+            <p class="fs-5 text-center">Delicious is a lucky for us and at the
+                same time, we present 10 reasons for you at 1 place.</p>
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="image/logo/birthday.png" class="card-img-top" alt="image/logo/">
+                    <div class="card-body">
+                        <h3>Birthday Celebration</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="image/logo/conference.png" class="card-img-top" alt="image/logo/">
+                    <div class="card-body">
+                        <h3>Conference</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="image/logo/cus.png" class="card-img-top" alt="image/logo/">
+                    <div class="card-body">
+                        <h3>types of cuisines</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="image/logo/gathering.png" class="card-img-top" alt="image/logo/">
+                    <div class="card-body">
+                        <h3>gathering</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="image/logo/party.png" class="card-img-top" alt="image/logo/">
+                        <div class="card-body">
+                            <h3>State-Of-Art & Spacious Ambience</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="image/logo/receptions.png" class="card-img-top" alt="image/logo/">
+                        <div class="card-body">
+                            <h3>Reception</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="image/logo/restaurant.png" class="card-img-top" alt="image/logo/">
+                        <div class="card-body">
+                            <h3>A lifestyle restaurant</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="image/logo/rupees.png" class="card-img-top" alt="image/logo/">
+                        <div class="card-body">
+                            <h3>Affordable</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="fs-5 text-center">
+                And one more bonus reason is - our style to welcome you to feel as your home, so that you feel
+                comfortable to make your celebrations happening and happier with some good "say cheese" moments.
+            </p>
+            <p class="fs-5 text-center">
+                Visit us once to feel the ecstasy of quality lunch & dinner with your beloveds and spacious banquets.
+                Feel the ten emotions at one place. A bigger and extravagant home for your celebrations within your
+                budget welcomes you.
+            </p>
+
+        </div>
+    </div>
+    <!-- about end -->
+
+    <!-- menu start -->
+    <div id="menu" class="container bg-light-subtle text-center">
+        <div class="text-center mt-5">
+            <h2 class="about-header">Restaurant Menu</span></h2>
+            <hr style="width: 17vw;" class=" m-auto border border-3 border-danger opacity-100" />
+        </div>
+        <div class="text-center mt-5">
+            <!-- <hr style="width: 7vw;" class=" m-auto border border-3 border-primary opacity-100" /> -->
+            <h3 class="about-header">Starters</span></h3>
+            <hr style="width: 7vw;" class=" m-auto border border-3 border-primary opacity-100" />
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-3" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                data-aos-easing="ease-in-out">
+                <div class="card1">
+                    <img id="" class="menu img-fluid img-thumbnail" src="image/menu/Soya Hara Bhara Kebab.jpg" alt="">
+                    <div class="card1-body">
+                        <h4 class="hed">Hara Bhara Kebab <br><br>RS.150</h4><br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                data-aos-easing="ease-in-out">
+                <div class="card1">
+                    <img id="" class="menu img-fluid img-thumbnail"
+                        src="image/menu/Veg Spring Roll _ Easy Indo Chinese (Asian) Appetizer Recipe.jpg" alt="">
+                    <div class="card1-body">
+                        <h4 class="hed">Spring Roll <br><br>RS.130</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                data-aos-easing="ease-in-out">
+                <div class="card1">
+                    <img id="" class="menu img-fluid img-thumbnail" src="image/menu/Vegetable Manchow Soup.jpg" alt="">
+                    <div class="card1-body">
+                        <h4 class="hed">Manchow Soup <br><br>RS.120</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                data-aos-easing="ease-in-out">
+                <div class="card1">
+                    <img id="" class="menu img-fluid img-thumbnail" src="image/menu/Vegetarian Hot and Sour Soup.jpg"
+                        alt="">
+                    <div class="card1-body">
+                        <h4 class="hed">Hot and Sour Soup <br><br>RS.100</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="text-center mt-5">
+            <!-- <hr style="width: 10vw;" class=" m-auto border border-3 border-primary opacity-100" /> -->
+            <h3 class="about-header">Main Cource</span></h3>
+            <hr style="width: 10vw;" class=" m-auto border border-3 border-primary opacity-100" />
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-3" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                data-aos-easing="ease-in">
+                <div class="card1">
+                    <img id="" class="menu img-fluid img-thumbnail" src="image/menu/Shahi Paneer.jpg" alt="">
+                    <div class="card1-body">
+                        <h4 class="hed">Shahi Paneer<br><br>RS.130</h4><br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                data-aos-easing="ease-in">
+                <div class="card1">
+                    <img id="" class="menu img-fluid img-thumbnail" src="image/menu/Palak Paneer Recipe.jpg" alt="">
+                    <div class="card1-body">
+                        <h4 class="hed">Palak Paneer <br><br>RS.130</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                data-aos-easing="ease-in">
+                <div class="card1">
+                    <img id="" class="menu img-fluid img-thumbnail" src="image/menu/Vegan Naan.jpg" alt="">
+                    <div class="card1-body">
+                        <h4 class="hed">Naan <br><br>RS.60 <br><br>2 pice</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                data-aos-easing="ease-in">
+                <div class="card1">
+                    <img id="" class="menu img-fluid img-thumbnail" src="image/menu/Chapati.jpg" alt="">
+                    <div class="card1-body">
+                        <h4 class="hed">Chapati <br><br>RS.50 <br><br> 3 pice</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="text-center mt-5">
+            <!-- <hr style="width: 7vw;" class=" m-auto border border-3 border-primary opacity-100" /> -->
+            <h3 class="about-header">Dessert</span></h3>
+            <hr style="width: 7vw;" class=" m-auto border border-3 border-primary opacity-100" />
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-3" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                data-aos-easing="ease-in">
+                <div class="card1">
+                    <img id="" class="menu img-fluid img-thumbnail"
+                        src="image/menu/Gulab Jamun recipe (with Mawa_khoya) - Cooking Carnival.jpg" alt="">
+                    <div class="card1-body">
+                        <h4 class="hed">Gulab Jamun<br><br>RS.90 <br><br> 4 pice</h4><br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                data-aos-easing="ease-in">
+                <div class="card1">
+                    <img id="" class="menu img-fluid img-thumbnail" src="image/menu/Kesar Badam Matka Kulfi Recipe.jpg"
+                        alt="">
+                    <div class="card1-body">
+                        <h4 class="hed">Kesar Badam Matka Kulfi <br><br>RS.50</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                data-aos-easing="ease-in">
+                <div class="card1">
+                    <img id="" class="menu img-fluid img-thumbnail" src="image/menu/Rasgullas Indian Dessert Recipe.jpg"
+                        alt="">
+                    <div class="card1-body">
+                        <h4 class="hed">Rasgullas <br><br>RS.90 <br><br>4 pice</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                data-aos-easing="ease-in">
+                <div class="card1">
+                    <img id="" class="menu img-fluid img-thumbnail"
+                        src="image/menu/Rasmalai Recipe, How to make best soft Rasmalai at home.jpg" alt="">
+                    <div class="card1-body">
+                        <h4 class="hed">Rasmalai<br><br>RS.50 <br><br> 3 pice</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- menu end -->
+
+    <!-- chefs start -->
+    <div id="chef">
+        <div class="container mt-5">
+            <div class="text-center">
+                <h2 class="about-header">Our Chefs</h2>
+                <hr style="width: 10vw;" class="border border-3 opacity-100 border-danger m-auto" />
+            </div>
+            <div class="row mt-5 text-center">
+                <div class="col-md-4" data-aos="zoom-out" data-aos-offset="200" data-aos-duration="1000"
+                    data-aos-easing="ease-in">
+                    <div class="card2">
+                        <img src="image/chef/cook1.jpg" class="card-img-top" alt="...">
+                        <div class="card2-body">
+                            <i class="bi bi-instagram card2-icon"></i>
+                            <i class="bi bi-facebook card2-icon"></i>
+                            <i class="bi bi-twitter-x card2-icon"></i>
+                            <h4 class="card2-title">Walter White</h4>
+                            <h5 class="card2-text">Chef</h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-out" data-aos-offset="200" data-aos-duration="1000"
+                    data-aos-easing="ease-in">
+                    <div class="card2">
+                        <img src="image/chef/head chef.jpg" class="card-img-top" alt="...">
+                        <div class="card2-body">
+                            <i class="bi bi-instagram card2-icon"></i>
+                            <i class="bi bi-facebook card2-icon"></i>
+                            <i class="bi bi-twitter-x card2-icon"></i>
+                            <h4 class="card2-title">William Anderson</h4>
+                            <h5 class="card2-text">Head Chef</h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-out" data-aos-offset="200" data-aos-duration="1000"
+                    data-aos-easing="ease-in">
+                    <div class="card2">
+                        <img src="image/chef/cook2.jpg" class="card-img-top" alt="...">
+                        <div class="card2-body">
+                            <i class="bi bi-instagram card2-icon"></i>
+                            <i class="bi bi-facebook card2-icon"></i>
+                            <i class="bi bi-twitter-x card2-icon"></i>
+                            <h4 class="card2-title">Sarah Jhonson</h4>
+                            <h5 class="card2-text">Chef</h5>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- chefs end -->
+
+    <!-- event start -->
+    <div id="event">
+        <div class="container bg-light mt-5">
+            <div class="text-center">
+                <h2 class="about-header">Events</h2>
+                <hr style="width: 10vw;" class="border border-3 opacity-100 border-danger m-auto" />
+            </div>
+            <div class="event1 row mt-5">
+                <div class="col-md-4" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                    data-aos-easing="ease-in">
+                    <img class="img-fluid" src="image/event/private party.jpg" alt="">
+                    <h3 class="event-heading">Private Party <br> RS.3000</h3>
+
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                    data-aos-easing="ease-in">
+                    <img class="img-fluid" src="image/event/Birthday party celebration.jpg" alt="">
+                    <h3 class="event-heading" style="color: black;">Birthday Party <br> RS.4000</h3>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                    data-aos-easing="ease-in">
+                    <img class="img-fluid" src="image/event/wedding.jpg" alt="">
+                    <h3 class="event-heading" style="color: white;">Wedding Party <br> RS.10000</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- event end -->
+
+    <!-- photo gallery start -->
+    <div id="gallery">
+        <div class="container">
+            <div class="container mt-5">
+                <div class="text-center">
+                    <h2 class="about-header">Photo Gallery</h2>
+                    <hr style="width: 15vw;" class="border border-3 opacity-100 border-danger m-auto" />
+                </div>
+                <div class="row mt-5 gallery">
+                    <div class="col-md-4" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                        data-aos-easing="ease-in">
+                        <img src="image/gallery/small-1.png" alt="">
+                    </div>
+                    <div class="col-md-4" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                        data-aos-easing="ease-in">
+                        <img src="image/gallery/smal-l2.png" alt="">
+                    </div>
+                    <div class="col-md-4" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                        data-aos-easing="ease-in">
+                        <img src="image/gallery/small-3.png" alt="">
+                    </div>
+                </div>
+                <div class="row mt-3 gallery">
+                    <div class="col-md-4 " data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                        data-aos-easing="ease-in">
+                        <img src="image/gallery/small-7.png" alt="">
+                    </div>
+                    <div class="col-md-4" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                        data-aos-easing="ease-in">
+                        <img src="image/gallery/small-8.png" alt="">
+                    </div>
+                    <div class="col-md-4" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                        data-aos-easing="ease-in">
+                        <img src="image/gallery/small-9.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- photo gallery end -->
+
+    <!-- contact start -->
+    <div id="contact">
+
+        <div class="container bg-light mt-5">
+            <div class="text-center">
+                <h2 class="about-header">Contact Us</h2>
+                <hr style="width: 12vw;" class="border border-3 opacity-100 border-danger m-auto" />
+                <h5 class="mt-3">Leave Message</h5>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <form class="row g-3">
+                        <div class="col-md-6">
+                            <label for="inputName4" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="inputName4">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputEmail4" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="inputEmail4">
+                        </div>
+                        <div class="col-12">
+                            <label for="inputSubject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="inputSubject" placeholder="">
+                        </div>
+                        <div class="col-12">
+                            <label for="inputmessage" class="form-label">Messages</label>
+                            <textarea name="" id="" cols="30" id="inputmessage" class="form-control"
+                                rows="10"></textarea>
+
+                        </div>
+                        <div class="col-12 text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                    data-aos-easing="ease-in">
+                    <iframe class="img-fluid map"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.957519705324!2d72.66961607502819!3d23.025331916225728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e87a8595ebdb5%3A0x6ecee0b025c83f82!2sOne%20Ten%20Restaurant%20%26%20Banquets!5e0!3m2!1sen!2sin!4v1725466252662!5m2!1sen!2sin"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact end -->
+
+    <!-- tablebook start -->
+    <div id="booktable">
+        <div class="container">
+            <div class="container mt-5">
+                <div class="text-center">
+                    <h2 class="about-header">Book Table</h2>
+                    <hr style="width: 12vw;" class="border border-3 opacity-100 border-danger m-auto" />
+                </div>
+                <div class="row bookt mt-5">
+                    <div class="col-md-6" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                        data-aos-easing="ease-in">
+                        <img class="img-fluid " src="image/download.jpg" alt="">
+                    </div>
+                    <div class="col-md-6">
+                        <form class="row g-3">
+                            <div class="col-md-4">
+                                <label for="inputname" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="inputname">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="inputemail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="inputemail">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="inputphone" class="form-label">Phone Number</label>
+                                <input type="tel" maxlength="10" class="form-control" id="inputphone">
+                            </div>
+                            <form class="row g-3">
+                                <div class="col-md-4">
+                                    <label for="inputDate" class="form-label">Date</label>
+                                    <input type="date" class="form-control" id="inputdate">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputtime" class="form-label">Time</label>
+                                    <input type="time" class="form-control" id="inputtime">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputperson" class="form-label">Total Person</label>
+                                    <input type="number" maxlength="10" class="form-control" id="inputperson">
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="inputmessage" class="form-label">Messages</label>
+                                    <textarea name="" id="" cols="30" id="inputmessage" class="form-control"
+                                        rows="10"></textarea>
+
+                                </div>
+
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-primary mt-3">Book Table</button>
+                                </div>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- tablebook end -->
+
+    <!-- footer start -->
+    <!-- Remove the container if you want to extend the Footer to full width. -->
+    <div class="container-fluid mt-5">
+        <!-- Footer -->
+        <footer class="text-center text-lg-start text-white" style="background-color: #2a2525">
+            <!-- Grid container -->
+            <div class="container p-4 pb-0">
+                <!-- Section: Links -->
+                <section class="">
+                    <!--Grid row-->
+                    <div class="row">
+                        <!-- Grid column -->
+                        <div class="col-md-3 col-lg-3 col-xl-3  mt-5">
+                            <h5 class="text-uppercase mb-4 font-weight-bold">
+                                Delicious Restaurant
+                            </h5>
+
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- <hr class="w-100 clearfix d-md-none" /> -->
+
+                        <!-- Grid column -->
+                        <!-- <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                            <h6 class="text-uppercase mb-4 font-weight-bold"></h6>
+                            <p>
+                                <a class="text-white"></a>
+                            </p>
+                            <p>
+                                <a class="text-white"></a>
+                            </p>
+                            <p>
+                                <a class="text-white"></a>
+                            </p>
+                            <p>
+                                <a class="text-white"></a>
+                            </p>
+                        </div> -->
+                        <!-- Grid column -->
+
+                        <!-- <hr class="w-100 clearfix d-md-none" /> -->
+
+                        <!-- Grid column -->
+                        <!-- <hr class="w-100 clearfix d-md-none" /> -->
+
+                        <!-- Grid column -->
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                            <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+                            <p><i class="bi bi-house mr-3 text-white fs-4"></i> 1st Floor, Opp. S P Ring Road BRTS,
+                                Odhav Circle, Ahmedabad.Gujarat-382415.</p>
+                            <p><i class="bi bi-envelope mr-3 text-white fs-4"></i> Delicious@gmail.com</p>
+                            <p><i class="bi bi-phone mr-3 text-white fs-4"></i> + 01 234 567 88</p>
+                            <p><i class="bi bi-phone mr-3 text-white fs-4"></i> + 01 234 567 89</p>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                            <h6 class="text-uppercase mb-4 font-weight-bold">Follow us</h6>
+
+                            <!-- Facebook -->
+                            <a class="btn btn-primary btn-floating m-1 px-4" style="background-color: #3b5998" href="#!"
+                                role="button"><i class="bi bi-facebook"></i></a>
+
+                            <!-- Twitter -->
+                            <a class="btn btn-primary btn-floating m-1 px-4" style="background-color: #000000" href="#!"
+                                role="button"><i class="bi bi-twitter-x"></i></a>
+
+                            <!-- Google -->
+                            <a class="btn btn-primary btn-floating m-1 px-4" style="background-color: #dd4b39" href="#!"
+                                role="button"><i class="bi bi-google"></i></a>
+
+                            <!-- Instagram -->
+                            <a class="btn btn-primary btn-floating  px-4 m-1" style="background-color: #ac2bac"
+                                href="#!" role="button"><i class="bi bi-instagram"></i></a>
+
+                        </div>
+                    </div>
+                    <!--Grid row-->
+                </section>
+                <!-- Section: Links -->
+            </div>
+            <!-- Grid container -->
+
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+                © 2024 Copyright:
+                <a class="text-white" href="https://mdbootstrap.com/">Delicious Restaurant</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+    </div>
+    <!-- End of .container -->
+    <!-- footer end -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
+
+
+
+
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/nimesh-mishra117/Created-Responsive-Restaurant-UI-Using-HTML-CSS-and-Bootstrap-.git
+git push -u origin main
